@@ -1,0 +1,29 @@
+242
+class Solution {
+bool isAnagram(String s, String t) {
+  List<String> result_s = s.split('')..sort();
+  List<String> result_t = t.split('')..sort();
+  
+  return result_s.toString() == result_t.toString();
+}
+
+}
+459
+bool repeatedSubstringPattern(String s) {
+	// input: abab
+  int len = s.length; // 4
+  
+  // 4 % 1 = 0, 4 % 2 = 0, 4 % 3 = 1, 4 % 4 = 0
+  // 길이의 절반까지 반복문을 돌면서 확인
+  for (int i = 1; i <= len ~/ 2; i++) {
+    if (len % i == 0) {
+      // s의 앞부분(i 길이의 부분 문자열)을 반복해서 만들어진 문자열이 원래 문자열과 같으면 true
+      String pattern = s.substring(0, i);
+      String repeatedPattern = pattern * (len ~/ i);
+      if (repeatedPattern == s) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
