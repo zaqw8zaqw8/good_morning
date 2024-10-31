@@ -1,0 +1,15 @@
+class Solution {
+  
+    List<int> plusOne(List<int> digits) {
+    var value = int.parse(digits.join(''));
+  
+    return (value += 1)
+      .toString()
+      .split('')
+      .map((val) => int.parse(val))
+      .toList();
+  }
+
+
+  
+}
